@@ -1,116 +1,92 @@
 <div class="content">
 
-  <main class="main">
+  <header class="header">
+    <div class="header-container">
+      <div class="header-text">
+        <h1 class="person-name">{{person.name}}</h1>
 
-    <h1 class="person-name">{{person.name}}</h1>
-    {{#if summary}}
-    <section class="summary">
-      {{summary}}
-    </section>
-    {{/if}}
+        {{#if summary}}
+        <section class="summary">
+          {{summary}}
+        </section>
+        {{/if}}
 
-    <div class="contact">
+        <div class="contact">
+          {{#if person.email}}
+          <span>{{person.email}}</span>
+          {{/if}}
 
-      {{#if person.email}}
-      <span>{{person.email}}</span>
+          {{#if person.phone}}
+          <span>{{person.phone}}</span>
+          {{/if}}
+
+          {{#if person.location}}
+          <span>{{person.location}}</span>
+          {{/if}}
+
+          {{#if person.linkedin}}
+          <span>
+            <a href="{{person.linkedin.url}}">{{person.linkedin.display}}</a>
+          </span>
+          {{/if}}
+
+          {{#if person.website}}
+          <span>
+            <a href="{{person.website.url}}">{{person.website.display}}</a>
+          </span>
+          {{/if}}
+        </div>
+      </div>
+
+      {{#if person.photo}}
+      <img class="profile-photo" src="{{person.photo}}" alt="{{person.name}}">
       {{/if}}
-
-      {{#if person.phone}}
-      <span>{{person.phone}}</span>
-      {{/if}}
-
-      {{#if person.location}}
-      <span>{{person.location}}</span>
-      {{/if}}
-
-      {{#if person.linkedin}}
-      <span>
-        <a href="{{person.linkedin.url}}">{{person.linkedin.display}}</a>
-      </span>
-      {{/if}}
-
-      {{#if person.website}}
-      <span>
-        <a href="{{person.website.url}}">{{person.website.display}}</a>
-      </span>
-      {{/if}}
-
     </div>
+  </header>
 
-
-
-    <section class="work-experience">
-
-      <h2>Work Experience</h2>
-
-      {{#each work_experience}}
-
-      <article class="job">
-
-        <div class="work-item">
-          <h3>{{position}} — {{company}}</h3>
-
-          {{#if start}}
-          {{#if end}}
-          <div class="date">{{start}} — {{end}}</div>
-          {{else}}
-          <div class="date">{{start}} — Present</div>
-          {{/if}}
-          {{else}}
-          {{#if end}}
-          <div class="date">{{end}}</div>
-          {{/if}}
-          {{/if}}
-        </div>
-        <div class="bullet-points">
-          {{#if bullet_points}}
-          <ul>
-            {{#each bullet_points}}
-            {{> bullet}}
-            {{/each}}
-          </ul>
-          {{/if}}
-        </div>
-      </article>
-
+  <!-- TECHNICAL SKILLS -->
+  {{#if technical_skills}}
+  <section class="skills-section">
+    <h2>Technical Skills</h2>
+    <div class="skills-grid">
+      {{#each technical_skills}}
+      <div class="skill-category">
+        <h3>{{item}}</h3>
+        <p>
+          {{#each children}}
+          {{~text~}}
+          {{~#unless @last}} · {{/unless~}}
+          {{/each}}
+        </p>
+      </div>
       {{/each}}
+    </div>
+  </section>
+  {{/if}}
 
-    </section>
-    <section class="education">
+  <!-- WORK EXPERIENCE -->
+  <section class="work-experience">
+    <h2>Work Experience</h2>
 
-      <h2>Education</h2>
+    {{#each work_experience}}
+    <article class="job">
+      <div class="work-item">
+        <h3>{{position}} — {{company}}</h3>
 
-      {{#each education}}
-
-      <article class="education-item">
-
-        <div class="work-item">
-          <div>
-            <h3>{{degree}}</h3>
-            <h4>{{institution}}</h4>
-          </div>
-
-          {{#if start}}
-          {{#if end}}
-          <div class="date">{{start}} — {{end}}</div>
-          {{else}}
-          <div class="date">{{start}} — present</div>
-          {{/if}}
-          {{else}}
-          {{#if end}}
-          <div class="date">{{end}}</div>
-          {{/if}}
-          {{/if}}
-        </div>
-
-        {{#if notes}}
-        <p><i><u>{{notes}}</u></i></p>
+        {{#if start}}
+        {{#if end}}
+        <div class="date">{{start}} — {{end}}</div>
+        {{else}}
+        <div class="date">{{start}} — Present</div>
         {{/if}}
-        {{#if dissertation_title}}
-        <div class="dissertation-title">
-        Dissertation title: <i>{{dissertation_title}}</i>
-        </div>
+        {{else}}
+        {{#if end}}
+        <div class="date">{{end}}</div>
         {{/if}}
+        {{/if}}
+      </div>
+
+      <div class="bullet-points">
         {{#if bullet_points}}
         <ul>
           {{#each bullet_points}}
@@ -118,117 +94,125 @@
           {{/each}}
         </ul>
         {{/if}}
+      </div>
+    </article>
+    {{/each}}
+  </section>
 
-      </article>
-
-      {{/each}}
-
-    </section>
-
-  </main>
-
-
-  <aside class="sidebar">
-
-    {{#if person.photo}}
-    <img class="profile-photo" src="{{person.photo}}" alt="{{person.name}}">
-    {{/if}}
-
-
-    {{#if languages}}
-    <section class="sidebar-section">
-
-      <h3>Languages</h3>
-
-      <ul>
-        {{#each languages}}
-        <li>
-          <span>{{language}} — {{level}}</span>
-        </li>
-        {{/each}}
-      </ul>
-
-    </section>
-    {{/if}}
-
-
-    {{#if technical_skills}}
-    <section class="sidebar-section">
-
-      <h3>Technical Skills</h3>
-
-      {{#each technical_skills}}
-
-      <h4>{{item}}</h4>
-
-      <ul>
-        {{#each children}}
-        <li>{{text}}</li>
-        {{/each}}
-      </ul>
-
-      {{/each}}
-
-    </section>
-    {{/if}}
-
-    {{#if projects}}
-    <section class="sidebar-section">
-      <h3>Selected Projects</h3>
-
+  <!-- SELECTED PROJECTS -->
+  {{#if projects}}
+  <section class="projects-section">
+    <h2>Selected Projects</h2>
+    <div class="projects-grid">
       {{#each projects}}
-      <a class="sidebar-projects" href="{{link}}">{{name}}</a>
-
-      <div class="sidebar-tags">
-        {{#each tags}}
-        {{#unless @first}} · {{/unless}}
-        {{this}}
-        {{/each}}
+      <div class="project-card">
+        <a class="project-name" href="{{link}}"><strong>{{name}}</strong></a>
+        <div class="project-tags">
+          {{#each tags}}
+          {{#unless @first}} · {{/unless}}
+          {{this}}
+          {{/each}}
+        </div>
       </div>
       {{/each}}
+    </div>
+  </section>
+  {{/if}}
 
-    </section>
-    {{/if}}
+  <!-- EDUCATION -->
+  <section class="education">
+    <h2>Education</h2>
 
+    {{#each education}}
+    <article class="education-item">
+      <div class="work-item">
+        <div>
+          <h3>
+            {{degree}}
+            {{#if notes}} <span class="degree-note">({{notes}})</span>{{/if}}
+          </h3>
+          <h4>{{institution}}</h4>
+        </div>
 
-    {{#if publications}}
-    <section class="sidebar-section">
-      <h3>Publications</h3>
-      <a href="https://furnas.eu/#publications">furnas.eu/#publications</a>
-    </section>
-    {{/if}}
+        {{#if start}}
+        {{#if end}}
+        <div class="date">{{start}} — {{end}}</div>
+        {{else}}
+        <div class="date">{{start}} — present</div>
+        {{/if}}
+        {{else}}
+        {{#if end}}
+        <div class="date">{{end}}</div>
+        {{/if}}
+        {{/if}}
+      </div>
 
-    {{#if additional_info}}
-    <section class="sidebar-section">
-
-      <h3>Additional Information</h3>
-
-      {{#each additional_info}}
-      {{#if driving_license}}
-      <div>Driving license — {{driving_license}}</div>
-      <div>Willing to travel extensively</div>
+      {{#if dissertation_title}}
+      <div class="dissertation-title">
+        Dissertation title: <i>{{dissertation_title}}</i>
+      </div>
       {{/if}}
-      {{/each}}
 
+      {{#if bullet_points}}
+      <ul>
+        {{#each bullet_points}}
+        {{> bullet}}
+        {{/each}}
+      </ul>
+      {{/if}}
+    </article>
+    {{/each}}
+  </section>
 
-    </section>
-    {{/if}}
+  <!-- ADDITIONAL DETAILS FOOTER BLOCK (Languages, Additional Info, Publications, Interests) -->
+  <section class="meta-section">
+    <div class="meta-grid">
 
+      {{#if languages}}
+      <div class="meta-item">
+        <h2>Languages</h2>
+        <p>
+          {{#each languages}}
+          {{~#unless @first}} · {{/unless~}}
+          {{language}} ({{level}})
+          {{~/each}}
+        </p>
+      </div>
+      {{/if}}
 
-    {{#if interests}}
-    <section class="sidebar-section">
+      {{#if additional_info}}
+      <div class="meta-item">
+        <h2>Additional Information</h2>
+        {{#each additional_info}}
+        {{#if driving_license}}
+        <p>Driving license — {{driving_license}} · Willing to travel extensively</p>
+        {{/if}}
+        {{/each}}
+      </div>
+      {{/if}}
 
-      <h3>Interests</h3>
+      {{#if publications}}
+      <div class="meta-item">
+        <h2>Publications</h2>
+        <p><a href="https://furnas.eu/#publications">furnas.eu/#publications</a></p>
+      </div>
+      {{/if}}
 
-      {{#each interests}}
-      {{#each tags}}
-      {{this}}
-      {{/each}}
-      {{/each}}
+      {{#if interests}}
+      <div class="meta-item">
+        <h2>Interests</h2>
+        <p>
+          {{#each interests}}
+          {{#each tags}}
+          {{~#unless @first}} · {{/unless~}}
+          {{this}}
+          {{~/each}}
+          {{/each}}
+        </p>
+      </div>
+      {{/if}}
 
-    </section>
-    {{/if}}
-
-  </aside>
+    </div>
+  </section>
 
 </div>

@@ -1,211 +1,312 @@
+/* ==========================================================================
+   1. CORE PRINT & DOCUMENT SETUP (Compact 1-Page Layout)
+   ========================================================================== */
 @page {
-    size: A4;
-    margin: 0;
-    
+    size: A4 portrait;
+    margin: 6mm 8mm 6mm 8mm; /* Tight margins to fit 1 page */
 }
 
 :root {
-    --h2-color:rgb(27, 106, 255);
-    --h3-color:rgb(27, 106, 255);
-    --bullets-points-color: rgb(36, 36, 36);
+    --primary-color: #1255ff;     /* Sky Blue for main section headings */
+    --name-color: #212121;        /* Dark Charcoal for name */
+    --text-color: #000000;        /* Soft Black for readable body text */
+    --subtext-color: #242424;     /* Muted Gray for dates, tags, and metadata */
+    
+    --font-main: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
 }
 
-html,
-body {
+* {
+    box-sizing: border-box;
     margin: 0;
     padding: 0;
 }
 
-body {
-    font-family: Arial, sans-serif;
-    font-size: 10pt;
-    line-height: 1.25;
+html, body {
+    width: 100%;
+    font-family: var(--font-main);
+    font-size: 9.25pt; /* Slightly reduced font size for 1-page fit */
+    line-height: 1.2;
+    color: var(--text-color);
+    background-color: #ffffff;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+}
+html, body {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-/* Headings */
+.content {
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+    padding: 0; /* Padding is handled by @page margins */
+    overflow: hidden; /* Hard clip to prevent any sub-pixel PDF overflow */
+}
+
+.content {
+    display: block;
+    width: 100%;
+}
+
+/* Prevent element splitting */
+section, article, .job, .education-item, .skill-category, .project-card {
+    break-inside: avoid;
+    page-break-inside: avoid;
+}
+
+/* ==========================================================================
+   2. TYPOGRAPHY & HEADINGS (No Rulers, Sky Blue Headers)
+   ========================================================================== */
+h1.person-name {
+    font-size: 28pt;
+    font-weight: 700;
+    color: var(--name-color);
+    letter-spacing: -0.3px;
+    line-height: 1.1;
+    margin-bottom: 1.2mm;
+}
+
 h2 {
-    font-size: 14pt;
-    margin: 2mm 0 1.5mm 0;
-    color: 
+    font-size: 12pt;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: var(--primary-color); /* Sky Blue */
+    border: none;                /* Removed ruler line */
+    padding: 0;
+    margin-top: 1.1mm;
+    margin-bottom: 1.1mm;
 }
 
 h3 {
-    font-size: 12pt;
+    font-size: 10pt;
+    font-weight: 600;
+    color: var(--name-color);
+    line-height: 1.1;
 }
 
 h4 {
-    font-size: 9pt;
+    font-size: 8.5pt;
+    font-weight: 500;
+    color: var(--subtext-color);
 }
 
-h3,
-h4 {
-    margin: 0;
+/* Links */
+a {
+    color: var(--name-color);   /* Sky Blue (#0088cc) */
+    text-decoration: underline;    /* Underlines all links */
+    text-underline-offset: 1.5px;  /* Keeps the underline clean and slightly off the text baseline */
+    text-decoration-thickness: 0.5pt; /* Thin, crisp line for print/PDF export */
 }
 
-/* Layout */
-.content::after {
-    content: "";
-    display: table;
-    clear: both;
+/* ==========================================================================
+   3. HEADER WITH PHOTO
+   ========================================================================== */
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 4mm;
+    margin-bottom: 2mm;
 }
 
-.main {
-    float: left;
-    width: 74%;
+.header-text {
+    flex: 1;
 }
 
-.sidebar {
-    float: right;
-    width: 24%;
+.profile-photo {
+    width: 34mm;
+    height: 34mm;
+    object-fit: cover;
+    border-radius: 50%;
+    flex-shrink: 0;
 }
 
-/* Name */
-.person-name {
-    margin: 2mm 1mm 1mm 0;
-    color: var(--h2-color);
-    font-size: 32pt;
-}
-
-/* Summary */
 .summary {
-    margin: 0;
-    font-size: 13pt;
+    font-size: 10pt;
+    color: var(--text-color);
+    margin-bottom: 1.5mm;
 }
 
-.summary p {
-    margin: 0;
-}
-
-/* Contact */
 .contact {
     display: flex;
     flex-wrap: wrap;
-    gap: 0 4mm;
-    font-size: 9pt;
+    align-items: center;
+    gap: 1mm 1mm;
+    font-size: 8pt;
+    color: var(--subtext-color);
+    font-weight: 500;
 }
 
-.contact span {
-    white-space: nowrap;
+.contact span:not(:last-child)::after {
+    content: "•";
+    margin-left: 3mm;
+    color: #cbd5e0;
 }
 
-/* Work */
-.work-item {
+/* ==========================================================================
+   4. TECHNICAL SKILLS SECTION (No Background Rectangles)
+   ========================================================================== */
+.skills-section {
+    margin-bottom: 2mm;
+}
+
+.skills-grid {
     display: flex;
-    align-items: baseline;
-    justify-content: space-between;
-    gap: 2mm;
+    flex-wrap: wrap;
+    gap: 1.5mm 4mm;
 }
 
-.work-experience h2 {
-    color: var(--h2-color);
+.skill-category {
+    flex: 1 1 47%;
+    min-width: 200px;
+    background: none;   /* Removed background rectangle */
+    border: none;       /* Removed border */
+    padding: 0;
 }
 
-.work-item h3 {
-    margin: 0;
-}
-
-.work-item .date {
-    font-size: 10pt;
-    white-space: nowrap;
-}
-
-/* Bullet points */
-.bullet-points ul,
-.education ul {
-    margin-top: 1mm;
-    margin-bottom: 1mm;
-    padding-left: 5mm;
-}
-
-.bullet-points li,
-.education li {
-    font-size: 10pt;
-    line-height: 1.15;
-    margin-bottom: 0.8mm;
-}
-
-.education h2 {
-    color: var(--h2-color);
-}
-
-.education-item p {
-    margin: 0.5mm 0;
-}
-
-.profile-photo {
-    width: 35mm;
-    height: 35mm;
-    object-fit: cover;
-    object-position: center;
-    border-radius: 50%;
-    display: block;
-    margin: 0 auto;
-}
-
-.sidebar {
-    min-width: 0;
-    margin-left: 2mm;
-    margin-top: 1mm;
-    margin-bottom: 1mm;
-    line-height: 1.25;
-
-}
-
-.profile-photo {
-    display: block;
-    width: 35mm;
-    height: 35mm;
-    object-fit: cover;
-    object-position: center;
-    border-radius: 50%;
-    margin: 0 auto 4mm;
-}
-
-.sidebar-section {
-    margin-bottom: 1mm;
+.skill-category h3 {
     font-size: 9pt;
+    margin-bottom: 0.5mm;
+    color: var(--name-color); /* Sky Blue category headers */
 }
 
-.sidebar-section h3 {
-    font-size: 11pt;
-    margin: 0mm 1mm 0mm 0mm;
-    color: var(--h3-color);
-
-}
-
-.sidebar-section h4 {
-    font-size: 10pt;
-    margin: 1mm 0 0.5mm;
-}
-
-.sidebar-section ul {
-    margin: 0;
-    padding-left: 4mm;
-}
-
-.sidebar-section li {
-    font-size: 9pt;
+.skill-category p {
+    font-size: 8.25pt;
+    color: var(--text-color);
     line-height: 1.2;
-    margin-bottom: 0.5mm;
-    color: var(bullet-points-color);
 }
 
-.sidebar-section .sidebar-tags {
-    font-size: 7pt;
+/* ==========================================================================
+   5. WORK EXPERIENCE & EDUCATION
+   ========================================================================== */
+.job, .education-item {
+    margin-bottom: 2.5mm;
+}
+
+.work-item {
+    display: flex !important;
+    flex-direction: row !important;
+    justify-content: space-between !important;
+    align-items: baseline !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
     margin-bottom: 0.5mm;
 }
 
-.sidebar-section .sidebar-project {
+/* Force left-side text container to truncate or wrap before hitting the date */
+.work-item h3,
+.work-item > div:first-child {
+    flex: 1 1 auto !important;
+    max-width: 75% !important; /* Prevents title from pushing date off screen */
+    min-width: 0 !important;
+    margin: 0 !important;
+}
+
+/* Lock date to the right side */
+.date {
+    flex: 0 0 auto !important;
+    width: 24% !important;
+    text-align: right !important;
     font-size: 9pt;
-    margin-bottom: 0.5mm;
+    font-weight: 600;
+    color: var(--subtext-color);
+    white-space: nowrap !important;
 }
 
-/*Links*/
+.bullet-points ul {
+    list-style-type: disc;
+    margin-left: 4mm;
+    margin-top: 0.5mm;
+}
 
-a {
-  color: black;
+.bullet-points li {
+    font-size: 8.5pt;
+    margin-bottom: 0.5mm;
+    line-height: 1.2;
+}
+
+.bullet-points li:last-child {
+    margin-bottom: 0;
 }
 
 .dissertation-title {
+    font-size: 8.25pt;
+    color: var(--subtext-color);
+    margin-top: 0.5mm;
+    margin-bottom: 0.5mm;
+}
+.degree-note {
     font-size: 9pt;
+    font-weight: 500;
+    color: var(--subtext-color); 
+    font-style: italic;
+    margin-left: 1.5mm;
+}
+
+/* ==========================================================================
+   6. SELECTED PROJECTS
+   ========================================================================== */
+.projects-section {
+    margin-bottom: 2mm;
+}
+
+.projects-grid {
+    display: flex;
+    gap: 4mm;
+}
+
+.project-card {
+    flex: 1;
+    border-left: none; /* Removed accent left bar */
+    padding-left: 0;
+}
+
+.project-name {
+    font-size: 8.5pt;
+    display: block;
+}
+
+.project-tags {
+    font-size: 8pt;
+    color: var(--subtext-color);
+    margin-top: 0.25mm;
+}
+
+/* ==========================================================================
+   7. META FOOTER BLOCK (Languages, Info, Publications, Interests)
+   ========================================================================== */
+.meta-section {
+    margin-top: 2mm;
+    padding-top: 0;
+    border-top: none; /* Removed ruler */
+}
+
+.meta-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5mm 5mm;
+}
+
+.meta-item {
+    flex: 1 1 47%;
+    min-width: 180px;
+}
+
+.meta-item h3 {
+    font-size: 8.25pt;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: var(--primary-color); /* Sky Blue */
+    margin-bottom: 0.25mm;
+}
+
+.meta-item p {
+    font-size: 8.25pt;
+    line-height: 1.15;
 }

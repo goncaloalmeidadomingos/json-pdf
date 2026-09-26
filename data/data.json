@@ -175,10 +175,16 @@
                     "text": "PLC — CODESYS"
                 },
                 {
-                    "text": "EtherCAT, Modbus"
+                    "text": "EtherCAT"
                 },
                 {
-                    "text": "OPC UA, MQTT"
+                    "text": "Modbus"
+                },
+                {
+                    "text": "OPC UA"
+                },
+                {
+                    "text": "MQTT"
                 }
             ]
         },
@@ -186,13 +192,25 @@
             "item": "Programming & Computing",
             "children": [
                 {
-                    "text": "Go, OpenCV"
+                    "text": "Go"
                 },
                 {
-                    "text": "Git, Linux, CLI"
+                    "text": "OpenCV"
                 },
                 {
-                    "text": "Docker, Podman"
+                    "text": "Git"
+                },
+                {
+                    "text": "Linux"
+                },
+                {
+                    "text": "CLI"
+                },
+                {
+                    "text": "Docker"
+                },
+                {
+                    "text": "Podman"
                 },
                 {
                     "text": "Proxmox"
@@ -201,7 +219,7 @@
                     "text": "Tailscale"
                 },
                 {
-                    "text": "Microsoft Office Suite"
+                    "text": "Microsoft Office"
                 }
             ]
         }
