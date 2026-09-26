@@ -3,15 +3,20 @@
    ========================================================================== */
 @page {
     size: A4 portrait;
-    margin: 6mm 8mm 6mm 8mm; /* Tight margins to fit 1 page */
+    margin: 6mm 8mm 6mm 8mm;
+    /* Tight margins to fit 1 page */
 }
 
 :root {
-    --primary-color: #1255ff;     /* Sky Blue for main section headings */
-    --name-color: #212121;        /* Dark Charcoal for name */
-    --text-color: #000000;        /* Soft Black for readable body text */
-    --subtext-color: #242424;     /* Muted Gray for dates, tags, and metadata */
-    
+    --primary-color: #1255ff;
+    /* Sky Blue for main section headings */
+    --name-color: #212121;
+    /* Dark Charcoal for name */
+    --text-color: #000000;
+    /* Soft Black for readable body text */
+    --subtext-color: #242424;
+    /* Muted Gray for dates, tags, and metadata */
+
     --font-main: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
 }
 
@@ -21,17 +26,21 @@
     padding: 0;
 }
 
-html, body {
+html,
+body {
     width: 100%;
     font-family: var(--font-main);
-    font-size: 9.25pt; /* Slightly reduced font size for 1-page fit */
+    font-size: 9.25pt;
+    /* Slightly reduced font size for 1-page fit */
     line-height: 1.2;
     color: var(--text-color);
     background-color: #ffffff;
     -webkit-print-color-adjust: exact;
     print-color-adjust: exact;
 }
-html, body {
+
+html,
+body {
     width: 100%;
     margin: 0;
     padding: 0;
@@ -40,11 +49,12 @@ html, body {
 
 .content {
     display: block;
-    width: 100%;
-    max-width: 100%;
-    box-sizing: border-box;
-    padding: 0; /* Padding is handled by @page margins */
-    overflow: hidden; /* Hard clip to prevent any sub-pixel PDF overflow */
+    width: 100% !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    overflow: visible !important; /* Prevents hard raster clipping on right margin */
 }
 
 .content {
@@ -53,7 +63,12 @@ html, body {
 }
 
 /* Prevent element splitting */
-section, article, .job, .education-item, .skill-category, .project-card {
+section,
+article,
+.job,
+.education-item,
+.skill-category,
+.project-card {
     break-inside: avoid;
     page-break-inside: avoid;
 }
@@ -62,7 +77,7 @@ section, article, .job, .education-item, .skill-category, .project-card {
    2. TYPOGRAPHY & HEADINGS (No Rulers, Sky Blue Headers)
    ========================================================================== */
 h1.person-name {
-    font-size: 28pt;
+    font-size: 20pt;
     font-weight: 700;
     color: var(--name-color);
     letter-spacing: -0.3px;
@@ -75,8 +90,10 @@ h2 {
     font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 0.5px;
-    color: var(--primary-color); /* Sky Blue */
-    border: none;                /* Removed ruler line */
+    color: var(--primary-color);
+    /* Sky Blue */
+    border: none;
+    /* Removed ruler line */
     padding: 0;
     margin-top: 1.1mm;
     margin-bottom: 1.1mm;
@@ -90,17 +107,21 @@ h3 {
 }
 
 h4 {
-    font-size: 8.5pt;
+    font-size: 9pt;
     font-weight: 500;
     color: var(--subtext-color);
 }
 
 /* Links */
 a {
-    color: var(--name-color);   /* Sky Blue (#0088cc) */
-    text-decoration: underline;    /* Underlines all links */
-    text-underline-offset: 1.5px;  /* Keeps the underline clean and slightly off the text baseline */
-    text-decoration-thickness: 0.5pt; /* Thin, crisp line for print/PDF export */
+    color: var(--name-color);
+    /* Sky Blue (#0088cc) */
+    text-decoration: underline;
+    /* Underlines all links */
+    text-underline-offset: 1.5px;
+    /* Keeps the underline clean and slightly off the text baseline */
+    text-decoration-thickness: 0.5pt;
+    /* Thin, crisp line for print/PDF export */
 }
 
 /* ==========================================================================
@@ -164,15 +185,18 @@ a {
 .skill-category {
     flex: 1 1 47%;
     min-width: 200px;
-    background: none;   /* Removed background rectangle */
-    border: none;       /* Removed border */
+    background: none;
+    /* Removed background rectangle */
+    border: none;
+    /* Removed border */
     padding: 0;
 }
 
 .skill-category h3 {
     font-size: 9pt;
     margin-bottom: 0.5mm;
-    color: var(--name-color); /* Sky Blue category headers */
+    color: var(--name-color);
+    /* Sky Blue category headers */
 }
 
 .skill-category p {
@@ -184,7 +208,8 @@ a {
 /* ==========================================================================
    5. WORK EXPERIENCE & EDUCATION
    ========================================================================== */
-.job, .education-item {
+.job,
+.education-item {
     margin-bottom: 2.5mm;
 }
 
@@ -194,44 +219,58 @@ a {
     justify-content: space-between !important;
     align-items: baseline !important;
     width: 100% !important;
-    max-width: 100% !important;
     box-sizing: border-box !important;
     margin-bottom: 0.5mm;
 }
 
-/* Force left-side text container to truncate or wrap before hitting the date */
+/* Fluid title flexbox: takes available space without forcing fixed px margins */
 .work-item h3,
 .work-item > div:first-child {
-    flex: 1 1 auto !important;
-    max-width: 75% !important; /* Prevents title from pushing date off screen */
+    flex: 1 1 0% !important; /* Dynamically shrinks to accommodate date */
     min-width: 0 !important;
     margin: 0 !important;
+    white-space: normal;
 }
 
-/* Lock date to the right side */
+/* Inline status note */
+.degree-note {
+    font-size: 8.5pt;
+    font-weight: 500;
+    color: var(--subtext-color);
+    font-style: italic;
+    white-space: nowrap !important;
+    margin-left: 1.5mm;
+}
+
+/* Lock date to right side, ensuring zero right-overflow */
 .date {
-    flex: 0 0 auto !important;
-    width: 24% !important;
+    grid-column: 2 !important;
     text-align: right !important;
     font-size: 9pt;
     font-weight: 600;
     color: var(--subtext-color);
     white-space: nowrap !important;
+    padding-right: 1mm !important; /* Safety buffer against right paper margin */
 }
 
-.bullet-points ul {
-    list-style-type: disc;
-    margin-left: 4mm;
+/* BULLET POINTS (Work Experience & Education) */
+.bullet-points ul,
+.education-item ul {
+    list-style-type: disc !important;
+    margin-left: 4mm !important;
     margin-top: 0.5mm;
+    padding-left: 0 !important;
 }
 
-.bullet-points li {
-    font-size: 8.5pt;
+.bullet-points li,
+.education-item li {
+    font-size: 8.75pt;
     margin-bottom: 0.5mm;
     line-height: 1.2;
 }
 
-.bullet-points li:last-child {
+.bullet-points li:last-child,
+.education-item li:last-child {
     margin-bottom: 0;
 }
 
@@ -241,41 +280,43 @@ a {
     margin-top: 0.5mm;
     margin-bottom: 0.5mm;
 }
-.degree-note {
-    font-size: 9pt;
-    font-weight: 500;
-    color: var(--subtext-color); 
-    font-style: italic;
-    margin-left: 1.5mm;
-}
 
 /* ==========================================================================
    6. SELECTED PROJECTS
    ========================================================================== */
 .projects-section {
-    margin-bottom: 2mm;
+    margin-bottom: 2.5mm;
 }
 
+/* Stack each project onto its own line */
 .projects-grid {
     display: flex;
-    gap: 4mm;
+    flex-direction: column;
+    gap: 1.5mm;
 }
 
 .project-card {
-    flex: 1;
-    border-left: none; /* Removed accent left bar */
+    width: 100%;
+    border-left: none;
     padding-left: 0;
+    line-height: 1.2;
+}
+
+/* Keep tags, separator, and title flowing horizontally on the single line */
+.project-tags {
+    font-size: 8.25pt;
+    color: var(--subtext-color);
+    display: inline;
+}
+
+.project-separator {
+    font-size: 8.25pt;
+    color: var(--subtext-color);
 }
 
 .project-name {
     font-size: 8.5pt;
-    display: block;
-}
-
-.project-tags {
-    font-size: 8pt;
-    color: var(--subtext-color);
-    margin-top: 0.25mm;
+    display: inline;
 }
 
 /* ==========================================================================
@@ -284,7 +325,8 @@ a {
 .meta-section {
     margin-top: 2mm;
     padding-top: 0;
-    border-top: none; /* Removed ruler */
+    border-top: none;
+    /* Removed ruler */
 }
 
 .meta-grid {
@@ -302,7 +344,8 @@ a {
     font-size: 8.25pt;
     text-transform: uppercase;
     letter-spacing: 0.5px;
-    color: var(--primary-color); /* Sky Blue */
+    color: var(--primary-color);
+    /* Sky Blue */
     margin-bottom: 0.25mm;
 }
 

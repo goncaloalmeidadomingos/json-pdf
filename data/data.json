@@ -14,7 +14,7 @@
         "phone": "+351 968 756 557",
         "location": "Lisbon, Portugal"
     },
-    "summary": "Multidisciplinary Mechatronics Engineer with hands-on experience designing, fabricating, and commissioning complex industrial and R&D systems across mechanical, electrical, instrumentation, and control domains.",
+    "summary": "Multidisciplinary mechatronics engineer with hands-on experience designing, fabricating, and commissioning complex industrial and R&D systems across mechanical, electrical, instrumentation, and control domains.",
     "work_experience": [
         {
             "company": "Precimaq Engineering",
@@ -92,7 +92,7 @@
         {
             "institution": "Instituto Superior Técnico — University of Lisbon",
             "degree": "PhD Research — Mechanical Engineering",
-            "notes": "Programme on hold",
+            "notes": "Programme on hold at my request",
             "start": "Feb 2022",
             "end": "present",
             "dissertation_title": "Development of an advanced concentrated solar collector for direct use of solar energy in industrial processes.",
@@ -161,7 +161,7 @@
                     "text": "Sensor Integration"
                 },
                 {
-                    "text": "NI-DAQ"
+                    "text": "NI-DAQ & LabVIEW"
                 },
                 {
                     "text": "High-Speed Data Acquisition"
@@ -210,9 +210,6 @@
                     "text": "Docker"
                 },
                 {
-                    "text": "Podman"
-                },
-                {
                     "text": "Proxmox"
                 },
                 {
@@ -243,8 +240,8 @@
             "name": "Solar Tracker",
             "link": "https://furnas.eu/projects/solar-tracker/",
             "tags": [
-                "Mechanical & optical design",
-                "Real-time control",
+                "Optomechanical Design",
+                "Real-time Control",
                 "Computer Vision",
                 "EtherCAT",
                 "PLC"

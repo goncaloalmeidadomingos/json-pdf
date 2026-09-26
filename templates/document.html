@@ -108,11 +108,12 @@
       <div class="project-card">
         <a class="project-name" href="{{link}}"><strong>{{name}}</strong></a>
         <div class="project-tags">
-          {{#each tags}}
-          {{#unless @first}} · {{/unless}}
-          {{this}}
-          {{/each}}
+          {{~#each tags~}}
+            {{~#unless @first}} · {{/unless~}}
+            {{~this~}}
+          {{~/each~}}
         </div>
+        
       </div>
       {{/each}}
     </div>
@@ -156,7 +157,7 @@
       {{#if bullet_points}}
       <ul>
         {{#each bullet_points}}
-        {{> bullet}}
+        <li>{{text}}</li>
         {{/each}}
       </ul>
       {{/if}}
