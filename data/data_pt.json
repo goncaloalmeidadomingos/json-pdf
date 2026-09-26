@@ -1,0 +1,274 @@
+{
+    "person": {
+        "name": "Gonçalo Domingos",
+        "photo": "/home/work/Pictures/headshot.jpeg",
+        "email": "goncalo@furnas.eu",
+        "linkedin": {
+            "url": "https://linkedin.com/in/goncalo-almeida-domingos/",
+            "display": "linkedin.com/in/goncalo-almeida-domingos/"
+        },
+        "website": {
+            "url": "https://furnas.eu",
+            "display": "furnas.eu"
+        },
+        "phone": "+351 968 756 557",
+        "location": ""
+    },
+    "summary": "Engenheiro multidisciplinar que combina mecânica, automação, software e desenvolvimento experimental para resolver problemas industriais.",
+    "work_experience": [
+        {
+            "company": "Precimaq Engineering",
+            "position": "Engenheiro",
+            "start": "Abr 2025",
+            "end": "presente",
+            "bullet_points": [
+                {
+                    "text": "Conceção, desenvolvimento e fabrico de soluções industriais à medida, abrangendo engenharia mecânica, eletrónica, robótica, controlo e automação, do conceito até à validação, incluindo um “checkweigher” integrado, com classificação IP69K, para a indústria alimentar."
+                },
+                {
+                    "text": "Fabrico de um motor de foguete à medida, combinando projeto e maquinagem de precisão."
+                },
+                {
+                    "text": "Responsável Técnico — ",
+                    "link": {
+                        "display": "SolarShape: Solar Concentrator for Industrial Processing PRR-funded project",
+                        "url": "https://www.precimaq.pt/projetos/"
+                    },
+                    "children": [
+                        {
+                            "text": "Liderança do desenvolvimento e demonstração de um sistema de concentração solar para produção direta de calor, transferindo conhecimentos de concentração e seguimento solar da investigação para aplicações industriais."
+                        },
+                        {
+                            "text": "Desenvolvimento de uma impressora 3D alimentada por luz solar concentrada, transferindo a energia térmica para a cabeça de impressão através de uma fibra ótica de sílica."
+                        },
+                        {
+                            "text": "Coordenação da equipa multidisciplinar e da integração dos sistemas mecânico, ótico, elétrico e de controlo, incluindo a arquitetura do sistema, desenvolvimento do protótipo e validação experimental."
+                        }
+                    ]
+                }
+            ],
+            "technologies": [
+                "PLC - CODESYS",
+                "Go",
+                "Ethercat"
+            ]
+        },
+        {
+            "company": "IDMEC",
+            "position": "Engenheiro de Investigação ",
+            "start": "Nov 2020",
+            "end": "Out 2021",
+            "bullet_points": [
+                {
+                    "text": "Realização de ensaios mecânicos de impacto, para avaliação do desempenho dos materiais e da sua resposta dinâmica."
+                },
+                {
+                    "text": "Caracterização mecânica sob condições de elevada taxa de deformação, utilizando a técnica da barra de Split-Hopkinson, incluindo a análise da resposta tensão-extensão."
+                },
+                {
+                    "text": "Desenvolvimento e operação de sistemas de aquisição de dados de alta velocidade, utilizando NI-DAQ e LabVIEW, para aquisição de sinais provenientes de extensómetros e de sensores capacitivos de deslocamento, desenvolvidos à medida."
+                },
+                {
+                    "text": "Realização de ensaios experimentais sob condições criogénicas e de alta temperatura, incluindo a instalação e configuração de sensores e instrumentação para ambientes extremos."
+                },
+                {
+                    "text": "Supervisão de estudantes durante procedimentos experimentais e apoio ao desenvolvimento de dissertações de mestrado."
+                }
+            ],
+            "technologies": [
+                "PLC - CODESYS",
+                "Go",
+                "Ethercat"
+            ]
+        }
+    ],
+    "education": [
+        {
+            "institution": "Instituto Superior Técnico — Universidade de Lisboa",
+            "degree": "Programa Doutoral — Engenharia Mecânica",
+            "notes": "Investigação de doutoramento concluída; grau não atribuído. Grau académico suspenso a meu pedido.",
+            "start": "Fev 2022",
+            "end": "presente",
+            "dissertation_title": "Development of an advanced concentrated solar collector for direct use of solar energy in industrial processes, demonstrating the possibility of attaining a quasi-homogeneous radiation flux.",
+            "bullet_points": [
+                {
+                    "text": "Conceção e desenvolvimento de um seguidor solar de dois eixos, combinando algoritmos preditivos de posicionamento solar com “feedback” por visão computacional."
+                },
+                {
+                    "text": "Desenvolvimento da arquitetura de controlo utilizando CODESYS e EtherCAT, bem como de uma aplicação em Go, para controlo e visão computacional, com comunicação OPC UA entre os sistemas."
+                },
+                {
+                    "text": "Conceção e fabrico dos componentes mecânicos e óticos do concentrador solar, incluindo a maquinagem de vários espelhos parabolóides e a validação experimental de diferentes configurações de refletores."
+                },
+                {
+                    "text": "Construção de um protótipo de demonstração de 200 W para aplicações solar-térmico."
+                },
+                {
+                    "text": "Apresentação de resultados de investigação em conferências internacionais, incluindo a SPIE Optics + Photonics 2024 (San Diego, EUA) e a EMRS Fall Meeting 2018 (Varsóvia, Polónia), com publicações na área."
+                },
+                {
+                    "text": "Docente — ",
+                    "link": {
+                        "display": "Máquinas-Ferramenta e Controlo Numérico (2º Semestre 2021/2022)",
+                        "url": "https://fenix.tecnico.ulisboa.pt/disciplinas/M-CN/2021-2022/2-semestre"
+                    }
+                }
+            ]
+        },
+        {
+            "institution": "Instituto Superior Técnico — Universidade de Lisboa",
+            "degree": "Mestrado — Engenharia de Materiais",
+            "notes": "",
+            "start": "",
+            "end": "2020",
+            "dissertation_title": "Development of a micromachining centre and fabrication and characterization of watchmaking parts",
+            "bullet_points": []
+        },
+        {
+            "institution": "Instituto Superior Técnico — Universidade de Lisboa",
+            "degree": "Licenciatura — Engenharia Física",
+            "notes": "",
+            "start": "",
+            "end": "2016",
+            "dissertation_title": "",
+            "bullet_points": []
+        }
+    ],
+    "technical_skills": [
+        {
+            "item": "Programação e Web",
+            "children": [
+                {
+                    "text": "Go"
+                },
+                {
+                    "text": "OpenCV"
+                },
+                {
+                    "text": "HTML, CSS"
+                }
+            ]
+        },
+        {
+            "item": "Desenvolvimento e Infraestrutura",
+            "children": [
+                {
+                    "text": "Git, Linux, CLI"
+                },
+                {
+                    "text": "Docker, Podman"
+                },
+                {
+                    "text": "Tailscale"
+                },
+                {
+                    "text": "Proxmox"
+                }
+            ]
+        },
+        {
+            "item": "Engenharia e Fabrico",
+            "children": [
+                {
+                    "text": "CAD — Onshape, Solid Edge"
+                },
+                {
+                    "text": "ECAD — KiCad, SkyCAD"
+                },
+                {
+                    "text": "Maquinagem — Fresagem, Torneamento, Rectificação"
+                },
+                {
+                    "text": "CNC"
+                },
+                {
+                    "text": "Prototipagem"
+                },
+                {
+                    "text": "Soldadura"
+                }
+            ]
+        },
+        {
+            "item": "Simulação e Electromagnetismo",
+            "children": [
+                {
+                    "text": "FEMM 4.2"
+                },
+                {
+                    "text": "Motores Lineares — Ironless, Ironcore"
+                }
+            ]
+        },
+        {
+            "item": "Automação, Controlo e Aquisição de Dados",
+            "children": [
+                {
+                    "text": "PLC — CODESYS"
+                },
+                {
+                    "text": "MQTT, OPC UA"
+                },
+                {
+                    "text": "EtherCAT, Modbus"
+                },
+                {
+                    "text": "Integração de Sensores"
+                },
+                {
+                    "text": "NI-DAQ"
+                },
+                {
+                    "text": "Aquisição de Dados Alta Velocidade"
+                }
+            ]
+        }
+    ],
+    "languages": [
+        {
+            "language": "Português",
+            "level": "Nativo"
+        },
+        {
+            "language": "Inglês",
+            "level": "C2"
+        },
+        {
+            "language": "Francês",
+            "level": "A2.1"
+        }
+    ],
+    "projects": [
+        {
+            "name": "Solar Tracker",
+            "link": "https://furnas.eu/projects/solar-tracker/",
+            "tags": [
+                "Projeto Mecânico e Ótico", "Controlo Tempo Real", "Visão Computacional", "EtherCAT", "PLC"
+            ]
+        },
+        {
+            "name": "Mesoscale Machining Station",
+            "link": "https://furnas.eu/projects/mmt/",
+            "tags": [
+                "Projeto Máquina-Ferramenta", "Micromaquinagem", "CNC", "PLC"
+            ]
+        }
+    ],
+    "publications": [
+        {
+            "link": "https://furnas.eu/#publications"
+        }
+    ],
+    "additional_info": [
+        {
+            "driving_license": "Categoria B"
+        }
+    ],
+    "interests": [
+        {
+            "tags": [
+                "Ler, viajar, esquiar, futebol, ténis"
+            ]
+        }
+    ]
+}

@@ -1,0 +1,17 @@
+<li>
+  {{text}}
+
+  {{#if link}}
+    <a href="{{link.url}}">
+      {{link.display}}
+    </a>
+  {{/if}}
+
+  {{#if children}}
+    <ul>
+      {{#each children}}
+        {{> bullet}}
+      {{/each}}
+    </ul>
+  {{/if}}
+</li>
